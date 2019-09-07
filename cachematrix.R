@@ -2,6 +2,7 @@
 
 ## Cache the given matrix if it is invertible
 makeCacheMatrix <- function(x = matrix()) {
+
   if(nrow(x) != ncol(x)) {
     message("this matrix is not invertible.")
     return()
@@ -20,10 +21,12 @@ makeCacheMatrix <- function(x = matrix()) {
   getinv <- function() x_
   
   list(set = set, get = get, setinv = setinv, getinv = getinv)
+
 }
 
 ## process the inverse and cached the result.
 cacheSolve <- function(x, ...) {
+
   ## Return a matrix that is the inverse of 'x'
   x_ <- x$getinv()
   if(!is.null(x_)){
@@ -34,4 +37,5 @@ cacheSolve <- function(x, ...) {
   x_ <- solve(mtx, ...)
   x$setinv(x_)
   x_
+
 }
